@@ -19,11 +19,12 @@ def edit(id=None):
         name = request.form['name']
         conditions = request.form['conditions']
         rule_type = request.form['rule_type']
+        frecuency = request.form['frecuency']
         relays_used = request.form['relays_used']
         true_action = request.form['true_action']
         false_action = request.form['false_action']
         work_time = request.form['work_time']
-        offset_restart = request.form['offset_restart']
+        sleep_time = request.form['sleep_time']
         teardown_action = request.form['teardown_action']
         actions_dict = json.dumps({"True": true_action, "False": false_action})
         # TODO: PERFORM EDIT REQUEST
@@ -36,5 +37,5 @@ def edit(id=None):
 @app.route('/toggle')
 def toggle(id=None):
     # TODO: PERFORM toggle job!
-    print("togled!")
+    print("toggled!")
     return redirect(url_for('index'))

@@ -48,7 +48,12 @@ window.setTimeout(function () {
     <tr>
       <th>Nombre</th>
       <th>Condiciones</th>
+      <th>Acciones</th>
       <th>Tipo de Regla</th>
+      <th>Frecuencia</th>
+      <th>Tiempo de trabajo</th>
+      <th>Tiempo de descanzo</th>
+      <th>Accion de finalización</th>
       <th>Reles en uso</th>
       <th>Estado actual</th>
       <th>Job ID</th>
@@ -59,7 +64,12 @@ window.setTimeout(function () {
     <tr>
         <td>{{ rule.name }}</td>
         <td>{{ rule.conditions }}</td>
+        <td>{{ rule.actions_dict }}</td>
         <td>{{ rule.rule_type }}</td>
+        <td>{{ rule.frecuency }}</td>
+        <td>{{ rule.work_time }}</td>
+        <td>{{ rule.sleep_time }}</td>
+        <td>{{ rule.teardown_action }}</td>
         <td>{{ rule.relays_used }}</td>
         <td>{% if rule.active %} Encendida {% else %} Apagada {% endif %}</td>
         <td>{{ rule.job_id }}</td>
