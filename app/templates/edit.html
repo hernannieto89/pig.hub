@@ -1,0 +1,44 @@
+<html>
+<body>
+{% if rule.activated %}
+<div>{{ rule.name}} esta actualmente encendido. Envie la señal de apagado desde el menu principal y luego intente editar nuevamente.</div>
+{% else %}
+<div>{{ rule.name }}</div>
+
+<form action="" method="post">
+    <label for="name">name: </label>
+    <input type="text" id="name" name="name" /><br>
+    <label for="conditions">Conditions: </label>
+    <input type="text" id="conditions" name="conditions" /><br>
+    <label for="rule_type">Rule type: </label>
+    <input type="text" id="rule_type" name="rule_type" /><br>
+    <label for="relays_used">Reles en uso: </label>
+    <input type="text" id="relays_used" name="relays_used" /><br>
+    <label for="true_action">Si la regla se cumple: </label>
+    <input type="text" id="true_action" name="true_action" /><br>
+    <label for="false_action">Si la regla NO se cumple: </label>
+    <input type="text" id="false_action" name="false_action" /><br>
+    <label for="work_time">Tiempo de trabajo: </label>
+    <input type="text" id="work_time" name="work_time" /><br>
+    <label for="offset_restart">Volver a iniciar en: </label>
+    <input type="text" id="offset_restart" name="offset_restart" /><br>
+    <label for="teardown_action">Accion de finalización: </label>
+    <input type="text" id="teardown_action" name="teardown_action" /><br>
+    <input type="submit" id="send-signup" name="signup" value="Editar" />
+</form>
+{% endif %}
+<li><a href="{{ url_for('index') }}">Volver</a></li>
+
+<footer>
+    <p id="txt">
+        conditions = CLOCK-1-value_GT_6  con value=H | M | S, DHT11-1-value_GT_30 con value= H | T, True<br>
+        work_time =  5s (puede ser m, h)<br>
+        offset_restart = 10m  En cuanto tiempo hay que volver a iniciar esta regla, si esta en cero se evita hacerlo<br>
+        teardown_action = "Relay-1-LOW" Que hacer cuando el tiempo termina, si esta vacio no se hace nada <br>
+        </p>
+</footer>
+
+
+</body>
+
+</html>
