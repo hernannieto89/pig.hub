@@ -7,7 +7,7 @@ from app import app
 
 RULES_URL = "localhost:5000/rules/"
 
-RULES_INFO_URL "localhost:5000/rules/{rule_id}"
+RULES_INFO_URL = "localhost:5000/rules/{}"
 
 @app.route('/')
 @app.route('/index')
