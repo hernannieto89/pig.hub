@@ -13,7 +13,7 @@ RULES_INFO_URL = "localhost:5000/rules/{}"
 @app.route('/index')
 def index():
     # TODO: PERFORM GET ALL RULES
-    rules = requests.get(url)
+    rules = requests.get(RULES_URL)
     return render_template('index.html', rules=rules, th_message="SomeMessage")
 
 
