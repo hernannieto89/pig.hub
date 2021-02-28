@@ -14,7 +14,7 @@ RULES_INFO_URL = "http://localhost:5000/rules/{}"
 def index():
     # TODO: PERFORM GET ALL RULES
     rules = requests.get(RULES_URL)
-    return render_template('index.html', rules=rules, th_message="SomeMessage")
+    return render_template('index.html', rules=rules.json(), th_message="SomeMessage")
 
 
 @app.route('/')
