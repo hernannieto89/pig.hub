@@ -5,9 +5,9 @@ from flask import render_template, request, redirect, url_for
 
 from app import app
 
-RULES_URL = "localhost:5000/rules/"
+RULES_URL = "http://localhost:5000/rules/"
 
-RULES_INFO_URL = "localhost:5000/rules/{}"
+RULES_INFO_URL = "http://localhost:5000/rules/{}"
 
 @app.route('/')
 @app.route('/index')
