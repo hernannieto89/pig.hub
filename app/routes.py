@@ -52,7 +52,7 @@ def edit(id=None):
             update_form["actions_dict"] = json.dumps({"True": true_action, "False": false_action})
         if teardown_action is not None:
             update_form["teardown_action"] = teardown_action
-        requests.put(RULES_INFO_URL, **update_form)
+        requests.put(RULES_INFO_URL, params=update_form)
         return redirect(url_for('index'))
     return render_template('edit.html', rule=rule, id=id)
 
@@ -61,5 +61,5 @@ def edit(id=None):
 @app.route('/toggle')
 def toggle(id=None):
     # TODO: PERFORM toggle job!
-    requests.post(RULES_INFO_URL)
+    requests.post(RULES_INFO_URL.format(id))
     return redirect(url_for('index'))
