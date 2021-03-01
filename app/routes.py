@@ -35,23 +35,23 @@ def edit(id):
         work_time = request.form.get('work_time')
         sleep_time = request.form.get('sleep_time')
         teardown_action = request.form.get('teardown_action')
-        if name is not None:
+        if name != "" :
             update_form["name"] = name
-        if conditions is not None:
+        if conditions != "":
             update_form["conditions"] = conditions
-        if rule_type is not None:
+        if rule_type != "":
             update_form["rule_type"] = rule_type
-        if frecuency is not None:
+        if frecuency != "":
             update_form["frecuency"] = frecuency
-        if relays_used is not None:
+        if relays_used != "":
             update_form["relays_used"] = relays_used
-        if work_time is not None:
+        if work_time != "":
             update_form["work_time"] = work_time
-        if sleep_time is not None:
+        if sleep_time != "":
             update_form["sleep_time"] = sleep_time
-        if true_action is not None and false_action is not None:
+        if true_action != "" and false_action != "":
             update_form["actions_dict"] = json.dumps({"True": true_action, "False": false_action})
-        if teardown_action is not None:
+        if teardown_action != "":
             update_form["teardown_action"] = teardown_action
         requests.put(RULES_INFO_URL.format(id), data=update_form)
         return redirect(url_for('index'))
