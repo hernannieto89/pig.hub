@@ -21,7 +21,8 @@ def index():
 @app.route('/')
 @app.route('/edit/<int:id>', methods=["GET", "POST"])
 def edit(id):
-    rule = requests.get(RULES_INFO_URL.format(id))
+    rule = requests.get(RULES_INFO_URL.format(id)).json()
+
     if request.method == 'POST':
         update_form = {}
         name = request.form.get('name')
