@@ -73,7 +73,7 @@ window.setTimeout(function () {
         <td>{{ rule.relays_used }}</td>
         <td>{% if rule.active %} Encendida {% else %} Apagada {% endif %}</td>
         <td>{{ rule.job_id }}</td>
-        <td><a href="{{ url_for('edit', id=rule.name) }}">Editar</a></td>
+        <td><a href="{{ url_for('edit', id=rule.id) }}">Editar</a></td>
         <td><a href="{{ url_for('toggle', id=rule.id) }}">{% if rule.active %} Apagar {% else %} Encender {% endif %}</a></td>
     </tr>
     {% endfor %}

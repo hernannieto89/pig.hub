@@ -20,7 +20,7 @@ def index():
 
 @app.route('/')
 @app.route('/edit', methods=["GET", "POST"])
-def edit(id=None):
+def edit(id):
     rule = requests.get(RULES_INFO_URL.format(id))
     if request.method == 'POST':
         update_form = {}
@@ -59,7 +59,7 @@ def edit(id=None):
 
 @app.route('/')
 @app.route('/toggle')
-def toggle(id=None):
+def toggle(id):
     # TODO: PERFORM toggle job!
     requests.post(RULES_INFO_URL.format(id))
     return redirect(url_for('index'))
