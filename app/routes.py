@@ -68,5 +68,6 @@ def toggle(id):
 
 
 def ht():
-    response = requests.get(HT_INFO_URL.format("DHT11", "1"))
-    return response.text
+    response = requests.get(HT_INFO_URL.format("DHT11", "1")).json()
+    msg = "Temperature: {} - Humidity: {}".format(response["T"], response["H"])
+    return msg
