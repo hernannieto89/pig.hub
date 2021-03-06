@@ -67,6 +67,6 @@ def toggle(id):
     return redirect(url_for('index'))
 
 
-def ht(id):
+def ht():
     response = requests.get(HT_INFO_URL.format("DHT11", "1"))
     return response.text
