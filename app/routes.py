@@ -9,13 +9,15 @@ RULES_URL = "http://localhost:5000/rules/"
 
 RULES_INFO_URL = "http://localhost:5000/rules/{}"
 
+HT_INFO_URL = "http://localhost:5000/sensors/{}/{}"
+
 @app.route('/')
 @app.route('/index')
 def index():
     # TODO: PERFORM GET ALL RULES
     rules = requests.get(RULES_URL)
     print(rules)
-    return render_template('index.html', rules=rules.json(), th_message="SomeMessage")
+    return render_template('index.html', rules=rules.json(), th_message=ht())
 
 
 @app.route('/')
@@ -61,6 +63,10 @@ def edit(id):
 @app.route('/')
 @app.route('/toggle/<int:id>')
 def toggle(id):
-    # TODO: PERFORM toggle job!
     requests.post(RULES_INFO_URL.format(id))
     return redirect(url_for('index'))
+
+
+def ht(id):
+    response = requests.get(HT_INFO_URL.format("DHT11", "1"))
+    return response.text
